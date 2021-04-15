@@ -28,7 +28,7 @@ class InputBox extends Component {
       <div className="input-box-wrapper">
         <input
           type="text"
-          placeholder="添加任务..."
+          placeholder="添加任务"
           value={this.state.inputVal}
           onChange={this.handleOnChange}
           onKeyPress={this.handleOnkeyPress}
