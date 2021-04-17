@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "eslint": "^7.24.0",
     "eslint-plugin-react": "^7.23.2",
     "husky": "^6.0.0",
