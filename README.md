@@ -29,7 +29,7 @@ yarn install
 ## 项目启动
 
 ```bash
-yarn start
+yarn dev
 ```
 
 ## 项目构建
