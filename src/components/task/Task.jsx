@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { classNames } from "../../utils/index";
+import "./task.less";
 function Task({ list, completeTask, deleteTask }) {
-  console.log(">>>Task", list);
   return (
     <div className="task-wrapper">
       {list.map((item) => (
@@ -20,14 +20,20 @@ function Task({ list, completeTask, deleteTask }) {
 function TaskItem({ info, completeTask, deleteTask }) {
   return (
     <div className="task-item-wrapper">
-      <div className="checkbox" onClick={() => completeTask(info.id)}>
+      <div className="check-box" onClick={() => completeTask(info.id)}>
         {info.taskStatus === "complete" ? (
-          <i className="iconfont icon-finish"></i>
+          <i className="completed-icon iconfont icon-finish"></i>
         ) : (
-          <i className="iconfont icon-circle"></i>
+          <i className="uncompleted-icon iconfont icon-circle"></i>
         )}
       </div>
-      <div className="task-content">{info.task}</div>
+      <div
+        className={classNames("task-content", {
+          complete: info.taskStatus === "complete",
+        })}
+      >
+        {info.task}
+      </div>
       <i
         className="delete-btn iconfont icon-delete"
         onClick={() => deleteTask(info.id)}

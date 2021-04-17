@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { uuid, formatCurrentDate } from "../../utils/index";
 import InputBox from "../inputBox/InputBox";
 import Task from "../task/Task";
-import { uuid, formatCurrentDate } from "../../utils/index";
+import "./todoApp.less";
 
 function TodoApp() {
   const [taskList, setTaskList] = useState([]);

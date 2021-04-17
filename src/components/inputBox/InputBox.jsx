@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
+import "./inputBox.less";
 
 function InputBox({ addTask }) {
   const inputRef = useRef();
