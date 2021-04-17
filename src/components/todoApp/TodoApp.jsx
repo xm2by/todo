@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import InputBox from "./inputBox/InputBox";
-import Task from "./task/Task";
+import InputBox from "../inputBox/InputBox";
+import Task from "../task/Task";
+import "./todoApp.scss";
+import { uuid, formatCurrentDate } from "../../utils/index";
 
 class TodoApp extends Component {
   constructor(props) {
@@ -14,8 +16,8 @@ class TodoApp extends Component {
   }
   addTask(value) {
     const newTask = {
-      id: new Date(),
-      createTime: "",
+      id: uuid(),
+      createTime: formatCurrentDate(),
       task: value,
       taskStatus: "uncompleted",
     };
@@ -28,9 +30,10 @@ class TodoApp extends Component {
     const { taskList } = this.state;
     const targetIndex = taskList.findIndex((item) => item.id === id);
     const target = taskList[targetIndex];
+    const targetStatus = target.taskStatus;
     taskList.splice(targetIndex, 1, {
       ...target,
-      taskStatus: "completed",
+      taskStatus: targetStatus === "uncompleted" ? "completed" : "uncompleted",
     });
     this.setState({
       taskList,
@@ -38,7 +41,7 @@ class TodoApp extends Component {
   }
   deleteTask(id) {
     const { taskList } = this.state;
-    const targetIndex = taskList.find((item) => item.id === id);
+    const targetIndex = taskList.findIndex((item) => item.id === id);
     taskList.splice(targetIndex, 1);
     this.setState({
       taskList,
@@ -47,6 +50,7 @@ class TodoApp extends Component {
   render() {
     return (
       <div className="todo-app-wrapper">
+        <header className="title">TODO</header>
         <InputBox addTask={this.addTask} />
         <Task
           taskList={this.state.taskList}

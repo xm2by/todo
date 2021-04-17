@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import "./inputBox.scss";
 
 class InputBox extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class InputBox extends Component {
     return (
       <div className="input-box-wrapper">
         <input
+          className="input"
           type="text"
           placeholder="添加任务"
           value={this.state.inputVal}

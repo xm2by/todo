@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { classNames } from "../../utils/index";
+import "./task.scss";
 
 class Task extends Component {
   render() {
@@ -26,12 +28,24 @@ class TaskItem extends Component {
     return (
       <div className="task-item-wrapper">
         <div className="check-box" onClick={() => completeTask(id)}>
-          {taskStatus === "uncompleted" ? "待完成" : "已完成"}
+          {taskStatus === "uncompleted" ? (
+            <i className="uncompleted-icon iconfont icon-circle"></i>
+          ) : (
+            <i className="completed-icon iconfont icon-finish"></i>
+          )}
         </div>
-        <div className="task-content">{task}</div>
-        <div className="delete-btn" onClick={() => deleteTask(id)}>
-          删除
+        <div
+          className={classNames("task-content", {
+            complete: taskStatus === "completed",
+          })}
+        >
+          {task}
         </div>
+        <i
+          className="delete-btn iconfont icon-delete"
+          title="删除"
+          onClick={() => deleteTask(id)}
+        ></i>
       </div>
     );
   }
