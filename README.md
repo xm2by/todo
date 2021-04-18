@@ -13,7 +13,7 @@
 - lint-staged：在 git 暂存文件上运行 linter 工具
 - commitlint：git commit 信息格式检查
 - prop-types：react 属性类型检查
-- sass：css 扩展语言
+- less：css 扩展语言
 - classnames：样式类 class 组合工具
 - dayjs：时间处理工具
 - uuid：随机唯一 id 生成工具
